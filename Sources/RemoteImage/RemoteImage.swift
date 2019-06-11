@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct RemoteImage : View {
+public struct RemoteImage : View {
     var imageURL: String = ""
     var defaultImage: UIImage = UIImage()
     
