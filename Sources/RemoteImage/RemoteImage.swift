@@ -15,7 +15,7 @@ public struct RemoteImage : View {
     @State var image: UIImage?
     let imageFetcher = ImageFetcher()
     
-    var body : some View {
+    public var body : some View {
         Image(uiImage: self.image ?? defaultImage)
             .onReceive(imageFetcher.fetch(url: imageURL)) { data in
                 self.image = UIImage(data: data)
