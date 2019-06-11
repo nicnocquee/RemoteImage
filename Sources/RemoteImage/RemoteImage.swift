@@ -12,8 +12,13 @@ public struct RemoteImage : View {
     var imageURL: String = ""
     var defaultImage: UIImage = UIImage()
     
-    @State var image: UIImage?
-    let imageFetcher = ImageFetcher()
+    @State var image: UIImage? = nil
+    let imageFetcher: ImageFetcher = ImageFetcher()
+    
+    public init(imageURL: String, defaultImage: UIImage) {
+        self.imageURL = imageURL
+        self.defaultImage = defaultImage
+    }
     
     public var body : some View {
         Image(uiImage: self.image ?? defaultImage)
@@ -67,6 +72,6 @@ class ImageFetcher {
 
 struct RemoteImage_Previews: PreviewProvider {
     static var previews: some View {
-        RemoteImage()
+        RemoteImage(imageURL: "", defaultImage: UIImage())
     }
 }
