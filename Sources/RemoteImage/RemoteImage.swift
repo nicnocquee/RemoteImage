@@ -38,7 +38,7 @@ class ImageFetcher {
     static let cache = NSCache<NSString, NSData>()
     
     func fetch(url: String) -> AnyPublisher<Data, Never> {
-        return Publishers.Future { promise in
+        return Future<Data, Never> { promise in
             // return image data from cache if available
             if let data = ImageFetcher.cache.object(forKey: NSString(string: url)) {
                 DispatchQueue.main.async {
